@@ -23,3 +23,81 @@
     /* opsiyonel */
     box-sizing: border-box
 }
+
+.orderpage {
+
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    max-width: 420px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background-color: #f0f0f0;
+    /* geçici*/
+}
+
+.baslik {
+    display: flex;
+    justify-content: space-between;
+    /* solda fiyat, sağda diğer ikisi */
+    align-items: center;
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 10px;
+
+}
+
+.fiyat {
+    font-size: 1.5rem;
+    /* büyük görünmesi için */
+    font-weight: bold;
+}
+
+.puan {
+    font-size: 1rem;
+    font-weight: 100;
+    margin-left: 10px;
+}
+
+.boyuthamur {
+    display: flex;
+    gap: 20px;
+    /* Yan yana aralarındaki boşluk */
+    align-items: flex-start;
+    /* Dikey hizalama */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Radio butonları yan yana yapmak için */
+.radio-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+/* Kırmızı yıldız ekleme */
+.zorunluLabel::after {
+    content: " *";
+    color: red;
+}
+
+.zorunluLabel {
+    font-size: large;
+    font-weight: bold;
+}
+
+.label {
+    font-size: large;
+    font-weight: bold;
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    /* 3’lü sıra */
+    gap: 10px;
+}
