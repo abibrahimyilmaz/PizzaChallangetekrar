@@ -153,6 +153,22 @@ export default function OrderPage() {
                 </div>
 
                 <div style={{ display: "flex", flexDirection: "column" }}>
+                    <label>İsim:</label>
+                    <input
+                        type="text"
+                        {...register("isim", {
+                            required: "İsim Zorunlu",
+                            minLength: {
+                                value: 3,
+                                message: "İsim en az 3 karakter olmalı",
+                            },
+                        })}
+                        placeholder="Lütfen İsminizi Gİriniz"
+                    />
+                    {errors.isim && <p style={{ color: "red" }}>{errors.isim.message}</p>}
+                </div>
+
+                <div style={{ display: "flex", flexDirection: "column" }}>
                     <label style={{ fontWeight: "bold", padding: "20px 0 " }}>Sipariş Notu:</label>
                     <textarea style={{
 
