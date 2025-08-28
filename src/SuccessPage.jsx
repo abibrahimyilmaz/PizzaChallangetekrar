@@ -1,3 +1,4 @@
+import "./index.css";
 export default function SuccessPage() {
 
 
@@ -5,7 +6,8 @@ export default function SuccessPage() {
 
 
         <div className="successpage">
-            <p>Burası Successpage</p>
+            <h1>TEBRİKLER!</h1>
+            <h1>SİPARİŞİNİZ ALINDI!</h1>
         </div>
 
     )

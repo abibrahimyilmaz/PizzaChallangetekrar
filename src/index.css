@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Barlow';
 }
 
 .header {
@@ -15,13 +16,54 @@
 }
 
 .homepage {
-
     background-color: #CE2829;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    /* opsiyonel */
-    box-sizing: border-box
+    max-width: 100%;
+}
+
+.banner {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* resim ekran5ı doldursun */
+}
+
+.homepage>div {
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+}
+
+.homepage h1 {
+    font-size: 2.5rem;
+    font-weight: lighter;
+    color: white;
+    font-family: 'Barlow', sans-serif;
+}
+
+.aciktim-buton {
+    background-color: #FFD700;
+    color: red;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .homepage h1 {
+        font-size: 1.8rem;
+    }
+
+    .aciktim-buton {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
 }
 
 .orderpage {
@@ -32,8 +74,7 @@
     max-width: 420px;
     min-height: 100vh;
     margin: 0 auto;
-    background-color: #f0f0f0;
-    /* geçici*/
+
 }
 
 .baslik {
@@ -42,8 +83,8 @@
     /* solda fiyat, sağda diğer ikisi */
     align-items: center;
     max-width: 420px;
-    margin: 0 auto;
-    padding: 10px;
+    margin: 10px auto;
+    padding: 0px;
 
 }
 
@@ -61,21 +102,37 @@
 
 .boyuthamur {
     display: flex;
-    gap: 20px;
-    /* Yan yana aralarındaki boşluk */
-    align-items: flex-start;
-    /* Dikey hizalama */
+    justify-content: space-between;
+    margin-right: 60px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+.secim {
+    display: flex;
+    flex-direction: column;
+
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
+    min-height: 200px;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+
 }
+
+
 
 /* Radio butonları yan yana yapmak için */
 .radio-group {
     display: flex;
-    gap: 10px;
+    flex-direction: column;
+    gap: 20px;
     margin-top: 5px;
 }
 
@@ -93,11 +150,141 @@
 .label {
     font-size: large;
     font-weight: bold;
+    margin: 20px 0%;
+
+
 }
+
+
 
 .checkbox-group {
     display: grid;
     grid-template-columns: repeat(3, auto);
     /* 3’lü sıra */
     gap: 10px;
+    padding: 10px;
+}
+
+.qty {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 40px;
+    margin-top: 5px;
+}
+
+.qty-btn {
+    width: 40px;
+    height: 100%;
+    border: none;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s;
+    background-color: #FDC913;
+
+
+
+}
+
+.qty-btn:hover {
+    background: #eee;
+}
+
+.qty-input {
+    width: 56px;
+    text-align: center;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    -moz-appearance: textfield;
+}
+
+/* Chrome/Safari number oklarını gizle */
+.qty-input::-webkit-outer-spin-button,
+.qty-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    /* solda adet, sağda toplam */
+    align-items: flex-start;
+    /* üst hizalansın */
+    gap: 20px;
+    /* aralarına boşluk */
+    margin-top: 20px;
+}
+
+.form-row>div:first-child {
+    flex: 1;
+    /* soldaki daha dar */
+}
+
+.form-row>div:last-child {
+    flex: 2;
+    /* sağdaki iki kat geniş */
+}
+
+.siparis-buton {
+
+    background-color: #FDC913;
+    border: none;
+    height: 30px;
+    cursor: pointer;
+    font-size: medium;
+
+
+
+}
+
+
+.aciktim-buton {
+    background-color: #FDC913;
+    border: none;
+    height: 30px;
+    cursor: pointer;
+    font-size: medium;
+    color: white;
+    border-radius: 10px;
+
+
+}
+
+.successpage {
+    background-color: #CE2829;
+    width: 100vw;
+    /* ekranın tamamı genişlik */
+    height: 100vh;
+    /* ekranın tamamı yükseklik */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* dikey ortala */
+    align-items: center;
+    /* yatay ortala */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.successpage h1 {
+    font-size: 2.5rem;
+    font-weight: lighter;
+    color: white;
+    font-family: 'Barlow', sans-serif;
+    margin: 10px 0;
+    /* başlıklar arası boşluk */
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .successpage h1 {
+        font-size: 1.8rem;
+    }
 }
