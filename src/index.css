@@ -37,11 +37,16 @@
 }
 
 .homepage h1 {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 6vw, 4rem);
+    /* ekran küçülünce küçülür, büyüyünce büyür */
     font-weight: lighter;
     color: white;
     font-family: 'Barlow', sans-serif;
+    margin: 0;
+    white-space: nowrap;
+    /* her h1 tek satırda kalır */
 }
+
 
 .aciktim-buton {
     background-color: #FFD700;
@@ -243,17 +248,7 @@
 }
 
 
-.aciktim-buton {
-    background-color: #FDC913;
-    border: none;
-    height: 30px;
-    cursor: pointer;
-    font-size: medium;
-    color: white;
-    border-radius: 10px;
 
-
-}
 
 .successpage {
     background-color: #CE2829;
@@ -270,6 +265,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: white;
+    font-family: "Barlow";
 }
 
 .successpage h1 {
@@ -287,4 +284,57 @@
     .successpage h1 {
         font-size: 1.8rem;
     }
+}
+
+.siparis-container {
+
+    padding: 20px;
+    color: white;
+    min-width: 150px;
+    /* minimum genişlik */
+    max-width: 200px;
+    /* maksimum genişlik */
+    font-size: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-family: "Barlow";
+}
+
+.fiyat-container {
+    max-width: 350px;
+    max-height: 150px;
+
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+
+    color: white;
+
+    font-family: 'Barlow', sans-serif;
+    font-weight: 500;
+}
+
+.fiyat-container p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.fiyat-container p span {
+    font-weight: 600;
+
+    margin-left: 20px;
+    color: white
+}
+
+
+hr {
+    border: none;
+    border-top: 2px solid white;
+    width: 40%;
+    /* çizginin uzunluğu */
+    margin: 20px auto;
+    /* ortala */
 }

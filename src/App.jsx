@@ -6,18 +6,28 @@ import OrderPage from "./OrderPage";
 import SuccessPage from "./SuccessPage";
 import Header from "./Header";
 import NotFoundPage from "./NotFoundPage";
+import { useState } from "react";
 
 function App() {
 
 
+  const [siparis, setSiparis] = useState(null)
   return (
     <>
       <Header></Header>
       <BrowserRouter>
         <Switch>
           <Route path="/" exact component={HomePage} />
-          <Route path="/OrderPage" exact component={OrderPage} />
-          <Route path="/SuccessPage" exact component={SuccessPage} />
+          <Route
+
+            path="/OrderPage" exact
+            render={(props) => (
+              <OrderPage {...props} setSiparis={setSiparis} />
+            )} />
+          <Route path="/SuccessPage" exact
+            render={(props) => (
+              <SuccessPage {...props} siparis={siparis} />
+            )} />
           <Route component={NotFoundPage} /> {/* Diğer tüm yollar 404 */}
         </Switch>
 

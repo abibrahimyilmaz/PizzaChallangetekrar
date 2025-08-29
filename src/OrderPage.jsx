@@ -6,7 +6,7 @@ import "./index.css";
 
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
-export default function OrderPage() {
+export default function OrderPage({ setSiparis }) {
 
     const history = useHistory();
 
@@ -28,39 +28,52 @@ export default function OrderPage() {
         "Biberiye"
     ];
 
+    const formatTL = (sayi) => {
+        return `${sayi.toFixed(2).replace(".", ",")}₺`;
+    };
 
     const secilipizza = pizzalar[0]
     const ekmalzemefiyat = 5;
 
 
 
-    const { register, handleSubmit, setValue, getValues, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, setValue, getValues, watch, formState: { errors, isValid, touchedFields } } = useForm({
+        mode: "onChange"
+    });
 
     // Formdaki değerleri takip et
     const secilenMalzemeler = watch("malzemeler") || [];
     const adet = parseInt(watch("adet")) || 1;
 
     // Hesaplama
+
     const secilenlerFiyat = secilenMalzemeler.length * ekmalzemefiyat;
-    const toplam = (secilipizza.fiyat + secilenlerFiyat) * adet;
+    const secilenlerFiyat2 = formatTL(secilenMalzemeler.length * ekmalzemefiyat);
+    const toplam = formatTL((secilipizza.fiyat + secilenlerFiyat) * adet);
 
     const onSubmit = (data) => {
+        const payload = {
+            ...data,
+            secilenlerFiyat2,
+            toplam,
+            pizzaIsmi: secilipizza.name
+        };
 
 
 
 
 
-        axios.post("https://reqres.in/api/pizza", (data), {
+        axios.post("https://reqres.in/api/pizza", payload, {
             headers: {
                 "Content-Type": "application/json",
                 "x-api-key": `reqres-free-v1`
             }
         })
-            .then((res) => {
-                console.log("API cevabı:", res.data);
-                toast.success("Siparişin gönderildi!");
-                history.push("/SuccessPage")
+            .then(res => {
+                setSiparis({ ...res.data, ...payload })
 
+                console.log(res.data);
+                history.push("/SuccessPage");
             })
             .catch((err) => {
                 console.error("Gönderim hatası:", err);
@@ -107,6 +120,7 @@ export default function OrderPage() {
                                     </div>
                                 ))}
                             </div>
+
                             {errors.boyut && <p style={{ color: "red" }}>{errors.boyut.message}</p>}
                         </div>
 
@@ -147,7 +161,10 @@ export default function OrderPage() {
                             </div>
                         ))}
                     </div>
-                    {errors.malzemeler && <p style={{ color: "red" }}>{errors.malzemeler.message}</p>}
+                    {touchedFields.malzemeler && errors.malzemeler && (
+                        <p style={{ color: "red" }}>{errors.malzemeler.message}</p>
+                    )}
+
 
 
                 </div>
@@ -221,7 +238,7 @@ export default function OrderPage() {
                     <div className="form-group">
                         <h4>Sipariş Toplamı</h4>
 
-                        <p>Seçimler: {secilenlerFiyat}</p>
+                        <p>Seçimler: {secilenlerFiyat2}</p>
                         <p style={{ color: "red" }}>Toplam: {toplam} </p>
                         <button className="siparis-buton" type="submit">Sipariş Ver</button>
                     </div>
