@@ -338,3 +338,123 @@ hr {
     margin: 20px auto;
     /* ortala */
 }
+
+.footer {
+    background-color: black;
+    color: #5F5F5F;
+    padding: 20px;
+}
+
+/* üstteki 3 div container */
+.footer-top {
+    display: flex;
+    justify-content: center;
+    /* ortaya toplar */
+    gap: 30px;
+}
+
+.footer-section p {
+    margin: 8px 0;
+    line-height: 1.6;
+
+}
+
+.footer-section h2 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+/* alt çizgi */
+.footer hr {
+    border: none;
+    border-top: 1px solid #5F5F5F;
+    margin: 10px auto;
+}
+
+/* alttaki yazı */
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Instagram ikon grid */
+.footer-insta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* desktop: 3 sütun */
+    gap: 15px;
+}
+
+.footer-insta img {
+    width: 100%;
+    max-width: 100px;
+    border-radius: 8px;
+
+    padding: 5px;
+
+}
+
+/* tablet görünümü (2x3) */
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-insta {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* küçük telefon (1x6) */
+@media (max-width: 480px) {
+    .footer-insta {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .lezzetus {
+
+        flex-direction: column;
+        max-width: 100%;
+    }
+
+    .resimlibutondiv {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+}
+
+button.resimlibuton {
+    width: 180px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 20px;
+    border: hidden;
+    border-radius: 50px;
+    background: white;
+    cursor: pointer;
+}
+
+.pizza-card {
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    width: 31%;
+    text-align: center;
+
+}
+
+.pizza-img {
+    width: 100%;
+    border-radius: 10px;
+}

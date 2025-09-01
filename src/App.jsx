@@ -7,6 +7,7 @@ import SuccessPage from "./SuccessPage";
 import Header from "./Header";
 import NotFoundPage from "./NotFoundPage";
 import { useState } from "react";
+import Footer from "./Footer";
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
         </Switch>
 
       </BrowserRouter>
+      <Footer />
 
     </>
   )
