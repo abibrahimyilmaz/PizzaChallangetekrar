@@ -108,6 +108,7 @@
 .boyuthamur {
     display: flex;
     justify-content: space-between;
+    gap: 10px;
     margin-right: 60px;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -457,4 +458,112 @@ button.resimlibuton {
 .pizza-img {
     width: 100%;
     border-radius: 10px;
+}
+
+.radio-group {
+    display: flex;
+    gap: 15px;
+}
+
+.radio-label {
+    cursor: pointer;
+}
+
+.radio-label input {
+    display: none;
+
+}
+
+.radio-text {
+    display: inline-block;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 100%;
+    transition: all 0.3s ease;
+    background-color: #FAF7F2;
+}
+
+.radio-label input:checked+.radio-text {
+    background-color: #FFEECC;
+
+
+}
+
+.hamurselect {
+    width: 258px;
+
+    padding: 10px 14px;
+    border: none;
+    border-radius: 6px;
+    background-color: #FAF7F2;
+    font-size: 14px;
+    cursor: pointer;
+
+
+}
+
+
+/* checkboxların css i*/
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 kolon */
+    gap: 12px 20px;
+
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.checkbox-label input {
+    display: none;
+    /* varsayılan kutucuğu gizle */
+}
+
+.checkmark {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background-color: #FAF7F2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: black;
+
+}
+
+
+.checkbox-label input:checked+.checkmark {
+    background-color: #FDC913;
+}
+
+.checkbox-label input:checked+.checkmark::after {
+    content: "✔";
+}
+
+
+/*navbar adı breadcrumb mış*/
+
+.breadcrumb {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #CE2829;
+
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #292929;
+
+}
+
+.breadcrumb span {
+    margin: 0 5px;
 }

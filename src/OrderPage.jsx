@@ -86,7 +86,16 @@ export default function OrderPage({ setSiparis }) {
 
 
         <div className="orderpage">
-            <div>
+
+            <div style={{ backgroundColor: "#FAF7F2", maxWidth: "100%" }}>
+
+                <img src='pictures/form-banner.png' alt='Form Banner' />
+                <nav className="breadcrumb">
+                    <a href="/">Anasayfa</a>
+                    <span>/</span>
+                    <span>Sipariş Oluştur</span>
+                </nav>
+
                 <h2 style={{ marginTop: "10px" }} >{secilipizza.name}</h2>
                 <div className='baslik'>
 
@@ -95,29 +104,31 @@ export default function OrderPage({ setSiparis }) {
                         <span className='puan'>{secilipizza.puan}</span>
                         <span className='puan'>({secilipizza.begeni})</span>
                     </div>
+
                 </div>
+                <p>{secilipizza.aciklama} </p>
+
             </div>
 
             <form onSubmit={handleSubmit(onSubmit)}>
 
 
                 <div>
-                    <p>{secilipizza.aciklama} </p>
+
 
                     <div className='boyuthamur'>
                         <div className="secim">
                             <label className="zorunluLabel">Boyut Seç:</label>
-                            <div className="radio-group">
-                                {["Küçük", "Orta", "Büyük"].map((boyut, index) => (
-                                    <div key={index}>
+                            <div style={{ display: "flex", flexDirection: "row" }} className="radio-group">
+                                {["S", "M", "L"].map((boyut, index) => (
+                                    <label key={index} className="radio-label">
                                         <input
                                             type="radio"
                                             value={boyut}
                                             {...register("boyut", { required: "Boyut Seçmek Zorunlu!" })}
-                                            id={`boyut-${index}`}
                                         />
-                                        <label htmlFor={`boyut-${index}`}>{boyut}</label>
-                                    </div>
+                                        <span className="radio-text">{boyut}</span>
+                                    </label>
                                 ))}
                             </div>
 
@@ -126,8 +137,8 @@ export default function OrderPage({ setSiparis }) {
 
                         <div className="secim">
                             <label className="zorunluLabel">Hamur Seç:</label>
-                            <select {...register("hamur", { required: "Hamur seçmek zorunlu" })}>
-                                <option value="">Hamur Kalınlığı</option>
+                            <select className='hamurselect' {...register("hamur", { required: "Hamur seçmek zorunlu" })}>
+                                <option value="">-- Hamur Kalınlığı Seç --</option>
                                 <option value="ince">İnce</option>
                                 <option value="Süper ince">Süper İnce</option>
                                 <option value="Kalın">Kalın</option>
@@ -143,35 +154,41 @@ export default function OrderPage({ setSiparis }) {
                     <p style={{ margin: "10px auto" }} >En fazla 10 en az 4 malzeme seçebilirsiniz. {ekmalzemefiyat}₺</p>
                     <div className="checkbox-group">
                         {malzemeler?.map((malzeme, index) => (
-                            <div key={index}>
+                            <label key={index} className="checkbox-label" htmlFor={`malzeme-${index}`}>
                                 <input
                                     type="checkbox"
+                                    id={`malzeme-${index}`}
                                     value={malzeme}
                                     {...register("malzemeler", {
                                         validate: (selected) => {
-                                            if (!selected) return "En az 4 malzeme seçmelisiniz";
-                                            if (selected.length < 4) return "En az 4 malzeme seçmelisiniz";
-                                            if (selected.length > 10) return "En fazla 10 malzeme seçebilirsiniz";
+                                            if (!selected || selected.length < 4) {
+                                                return "En az 4 malzeme seçmelisiniz";
+                                            }
+                                            if (selected.length > 10) {
+                                                return "En fazla 10 malzeme seçebilirsiniz";
+                                            }
                                             return true;
                                         },
                                     })}
-                                    id={`malzeme-${index}`}
                                 />
-                                <label htmlFor={`malzeme-${index}`}>{malzeme}</label>
-                            </div>
+                                <span className="checkmark"></span>
+                                {malzeme}
+                            </label>
                         ))}
                     </div>
-                    {touchedFields.malzemeler && errors.malzemeler && (
+                    {errors.malzemeler && (
                         <p style={{ color: "red" }}>{errors.malzemeler.message}</p>
                     )}
+
+
 
 
 
                 </div>
 
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                    <label>İsim:</label>
-                    <input
+                    <label style={{ fontWeight: "bold", padding: "10px 0px" }} >İsim</label>
+                    <input style={{ backgroundColor: "#FAF7F2", height: "35px" }}
                         type="text"
                         {...register("isim", {
                             required: "İsim Zorunlu",
@@ -180,15 +197,15 @@ export default function OrderPage({ setSiparis }) {
                                 message: "İsim en az 3 karakter olmalı",
                             },
                         })}
-                        placeholder="Lütfen İsminizi Gİriniz"
+                        placeholder="Lütfen İsminizi Giriniz"
                     />
                     {errors.isim && <p style={{ color: "red" }}>{errors.isim.message}</p>}
                 </div>
 
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                    <label style={{ fontWeight: "bold", padding: "20px 0 " }}>Sipariş Notu:</label>
+                    <label style={{ fontWeight: "bold", padding: "20px 0 " }}>Sipariş Notu</label>
                     <textarea style={{
-
+                        backgroundColor: "#FAF7F2",
                         padding: "10px 0"
                     }}
                         {...register("not")}
