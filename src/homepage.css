@@ -1,0 +1,254 @@
+.homepage {
+
+    max-width: 100%;
+    font-family: 'Barlow';
+}
+
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding-top: 60px;
+    height: 100vh;
+    /* tüm ekran yüksekliği */
+    background: url("./images/home-banner.png") no-repeat center/cover;
+    color: white;
+
+
+
+}
+
+.main p {
+    font-family: "Satisfy";
+    color: #FDC913;
+    font-size: 32px;
+}
+
+main h1 {
+    color: white;
+    font-weight: 400;
+    font-size: clamp(2rem, 6vw, 4rem);
+}
+
+.aciktim-buton {
+    background-color: #FFD700;
+    color: black;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 200px;
+    height: auto;
+
+}
+
+.yemek-bar {
+    display: flex;
+    gap: 20px;
+    min-height: 60px;
+    align-items: center;
+    background: white;
+    justify-content: center;
+}
+
+.yemek-item {
+    display: flex;
+    align-items: center;
+}
+
+.altsayfa {
+    background-color: #FAF7F2;
+}
+
+.lezzetus {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 40px auto;
+
+}
+
+.ozel-lezzetus {
+    position: relative;
+    width: 530px;
+    height: 460px;
+    border-radius: 12px;
+    overflow: hidden;
+
+}
+
+.ozel-lezzetus img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.hackatlon-npm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hackatlon-npm>div {
+    position: relative;
+    width: 530px;
+    height: 220px;
+    border-radius: 12px;
+    overflow: hidden;
+
+}
+
+.hackatlon-npm img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ozel-lezzetus h2,
+.hackatlon-npm h2 {
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+
+}
+
+.ozel-lezzetus p {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    color: white;
+    font-size: 20px;
+}
+
+.btn-siparisver {
+    position: absolute;
+    bottom: 30%;
+    left: 15px;
+    background: white;
+    color: #CE2829;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+.paket-menu {
+
+    text-align: center;
+    color: #CE2829;
+    font-family: "Satisfy";
+    font-size: x-large;
+
+}
+
+.doyuran-lezzetler {
+
+    text-align: center;
+    color: black;
+    font-size: xx-large;
+}
+
+.resimlibutondiv {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.resimlibuton {
+
+    border-radius: 8px;
+    cursor: pointer;
+
+}
+
+.resimlibuton:hover {
+    background-color: black;
+    color: white;
+
+}
+
+@media (max-width: 600px) {
+    .resimlibutondiv button {
+        flex: 1 1 40%;
+        /* Satırda 1 veya 2 buton olur */
+    }
+}
+
+
+.carousel-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.carousel-container::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari */
+}
+
+.pizza-card {
+    flex: 0 0 calc(33.333% - 20px);
+    /* 3 kart ekranda */
+
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+
+}
+
+@media (max-width: 600px) {
+    .pizza-card {
+        flex: 0 0 calc(100% - 20px);
+    }
+}
+
+.pizza-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+    /* kırpmayı kaldırır, görsel sığar */
+    border-radius: 10px;
+
+
+}
+
+
+
+.pizza-info {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.scroll-btn {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+}

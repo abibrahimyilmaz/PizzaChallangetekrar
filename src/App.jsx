@@ -1,5 +1,4 @@
 
-import "./index.css";
 import HomePage from "./HomePage";
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import OrderPage from "./OrderPage";
@@ -13,9 +12,11 @@ function App() {
 
 
   const [siparis, setSiparis] = useState(null)
+
   return (
     <>
       <Header></Header>
+
       <BrowserRouter>
         <Switch>
           <Route path="/" exact component={HomePage} />
@@ -29,7 +30,7 @@ function App() {
             render={(props) => (
               <SuccessPage {...props} siparis={siparis} />
             )} />
-          <Route component={NotFoundPage} /> {/* Diğer tüm yollar 404 */}
+          <Route component={NotFoundPage} />
         </Switch>
 
       </BrowserRouter>

@@ -53,11 +53,11 @@ export default function Footer() {
 
                     <h2>Instagram</h2>
 
-                    <div className="footer-insta">
+                    <figure className="footer-insta">
                         {insta.map((icon, index) => (
                             <img key={index} src={icon} alt={`icon-${index}`} />
                         ))}
-                    </div>
+                    </figure>
 
                 </div>
 

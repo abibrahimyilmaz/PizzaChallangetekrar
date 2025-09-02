@@ -4,34 +4,39 @@
         "fiyat": 85.5,
         "aciklama": "Frontend Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. Küçük bir pizzaya bazen pizzetta denir.",
         "puan": 4.7,
-        "begeni": 120
+        "begeni": 120,
+        "src": "/pictures/food-1.png"
     },
     {
         "name": "Flexbox Margherita",
         "fiyat": 70.0,
         "aciklama": "CSS Flexbox gibi düzenli ve uyumlu bir pizza. Domates sosu, mozzarella peyniri ve taze fesleğen ile hazırlanır. Hafif ve klasik İtalyan lezzeti sevenler için ideal.",
         "puan": 4.3,
-        "begeni": 85
+        "begeni": 85,
+        "src": "/pictures/food-2.png"
     },
     {
         "name": "Grid BBQ Tavuk",
         "fiyat": 95.0,
         "aciklama": "CSS Grid kadar organize ve güçlü bir lezzet. Barbekü sosu, tavuk parçaları, kırmızı soğan ve mısır ile hazırlanır. Hem göze hem damağa hitap eder.",
         "puan": 4.8,
-        "begeni": 150
+        "begeni": 150,
+        "src": "/pictures/food-3.png"
     },
     {
         "name": "React Pepperoni",
         "fiyat": 90.5,
         "aciklama": "Component bazlı lezzet deneyimi isteyenler için. Bol pepperoni, domates sosu ve mozzarella peyniri ile hazırlanır. Sıcak servis edilir.",
         "puan": 4.6,
-        "begeni": 110
+        "begeni": 110,
+        "src": "/pictures/food-3.png"
     },
     {
         "name": "Vue Veggie Delight",
         "fiyat": 80.0,
         "aciklama": "Bitkisel malzemelerle dolu, Vue kadar esnek bir pizza. Kabak, biber, mantar, zeytin ve domates sosu ile hazırlanır. Hafif ve sağlıklı bir seçenek.",
         "puan": 4.4,
-        "begeni": 95
+        "begeni": 95,
+        "src": "/pictures/food-2.png"
     }
 ]

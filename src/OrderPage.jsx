@@ -37,7 +37,7 @@ export default function OrderPage({ setSiparis }) {
 
 
 
-    const { register, handleSubmit, setValue, getValues, watch, formState: { errors, isValid, touchedFields } } = useForm({
+    const { register, handleSubmit, setValue, getValues, watch, formState: { errors, isValid } } = useForm({
         mode: "onChange"
     });
 
@@ -257,7 +257,7 @@ export default function OrderPage({ setSiparis }) {
 
                         <p>Seçimler: {secilenlerFiyat2}</p>
                         <p style={{ color: "red" }}>Toplam: {toplam} </p>
-                        <button className="siparis-buton" type="submit">Sipariş Ver</button>
+                        <button className="siparis-buton" type="submit" disabled={!isValid}>Sipariş Ver</button>
                     </div>
                 </div>
 
