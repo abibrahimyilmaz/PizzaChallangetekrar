@@ -1,4 +1,4 @@
-import "./index.css";
+import "./success.css";
 export default function SuccessPage({ siparis }) {
 
 
@@ -6,16 +6,17 @@ export default function SuccessPage({ siparis }) {
 
 
         <div className="successpage">
-            <h2 style={{ fontFamily: "Satisfy", color: "#FDC913" }}>lezzetin yolda</h2>
-            <h1>SİPARİŞ ALINDI</h1>
-
+            <div className="siparis-alindi">
+                <h2 >lezzetin yolda</h2>
+                <h1>SİPARİŞ ALINDI</h1>
+            </div>
             <hr />
 
 
 
             <h4> {siparis.pizzaIsmi}</h4>
 
-            <div className="siparis-container">
+            <div>
 
 
 
@@ -29,9 +30,17 @@ export default function SuccessPage({ siparis }) {
 
             </div>
             <div className="fiyat-container">
-                <p>Sipariş Toplamı</p>
-                <p>Seçimler: <span>{siparis.secilenlerFiyat2}₺</span></p>
-                <p>Toplam: <span>{siparis.toplam}₺</span></p>
+                <p className="baslik">Sipariş Toplamı</p>
+
+                <div className="satir">
+                    <p>Seçimler:</p>
+                    <span>{siparis.secilenlerFiyat2}₺</span>
+                </div>
+
+                <div className="satir">
+                    <p>Toplam:</p>
+                    <span>{siparis.toplam}₺</span>
+                </div>
             </div>
         </div>
 

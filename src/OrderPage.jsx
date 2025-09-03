@@ -7,6 +7,7 @@ import "./orderpage.css";
 
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
+import { useState } from 'react';
 export default function OrderPage({ setSiparis }) {
 
     const history = useHistory();
@@ -33,8 +34,15 @@ export default function OrderPage({ setSiparis }) {
         return `${sayi.toFixed(2).replace(".", ",")}₺`;
     };
 
-    const secilipizza = pizzalar[0]
+
     const ekmalzemefiyat = 5;
+
+    const [secilipizza, setSeciliPizza] = useState(pizzalar[1]);
+
+    const handleChange = (e) => {
+        const secilenIndex = e.target.value; // select'teki index
+        setSeciliPizza(pizzalar[secilenIndex]);
+    };
 
 
 
@@ -88,6 +96,7 @@ export default function OrderPage({ setSiparis }) {
 
         <div>
 
+
             <div className='order-ust-bolum'>
 
 
@@ -98,6 +107,17 @@ export default function OrderPage({ setSiparis }) {
                         <span>/</span>
                         <span>Sipariş Oluştur</span>
                     </nav>
+
+                    <div className='pizza-secimi'>
+                        <label className='label'> Pizzanı Seç</label>
+                        <select onChange={handleChange}>
+                            {pizzalar.map((pizza, index) => (
+                                <option key={index} value={index}>
+                                    {pizza.name}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
 
                     <h2>{secilipizza.name}</h2>
 

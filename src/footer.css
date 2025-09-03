@@ -1,0 +1,93 @@
+.footer {
+    background-color: #000;
+    color: #FFFFFF;
+    padding: 40px 20px;
+    font-family: 'Barlow', sans-serif;
+    line-height: 2;
+
+}
+
+.footer img {
+    padding: 20px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+
+}
+
+.footer-section h2 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+
+}
+
+.footer-section p {
+    margin: 5px 0;
+    font-size: 1rem;
+}
+
+.footer-section address p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-section address a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer-insta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.footer-insta img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Alt çizgi ve copyright */
+.footer hr {
+    border: 0;
+    border-top: 1px solid #555;
+
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-insta {
+        grid-template-columns: repeat(2, 1fr);
+        /* mobilde 2 kolon */
+        grid-template-rows: repeat(3, 1fr);
+        /* 3 satır */
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+}

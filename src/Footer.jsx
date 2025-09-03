@@ -1,5 +1,5 @@
 
-import "./index.css";
+import "./footer.css";
 import icon1 from "./images/footer/icons/icon-1.png";
 import icon2 from "./images/footer/icons/icon-2.png";
 import icon3 from "./images/footer/icons/icon-3.png";
@@ -9,6 +9,7 @@ import li2 from "./images/footer/insta/li-2.png";
 import li3 from "./images/footer/insta/li-3.png";
 import li4 from "./images/footer/insta/li-4.png";
 import li5 from "./images/footer/insta/li-5.png";
+import logofooter from "./images/footer/logo-footer.svg";
 import pizzalar from './pizzalar.json';
 
 export default function Footer() {
@@ -21,8 +22,10 @@ export default function Footer() {
             <div className="footer-top">
                 <div className="footer-section">
 
+                    <img src={logofooter} ></img>
+
                     <section id="contact">
-                        <h2>Teknolojik Yemekler</h2>
+
                         <address>
                             <p>
                                 <img src={icon1} alt="Adres" width="20" height="20" />
