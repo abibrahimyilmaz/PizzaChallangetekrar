@@ -1,0 +1,313 @@
+* {
+    font-family: "Barlow";
+}
+
+.order-ust-bolum {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    margin: 0 auto;
+    background-color: #FAF7F2;
+}
+
+.order-pizza-aciklama {
+    max-width: 530px;
+
+    font-weight: 400;
+    line-height: 1.8rem;
+
+}
+
+.baslik {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.fiyat {
+    font-size: 1.8rem;
+    font-weight: 700;
+
+}
+
+.puan:nth-child(2) {
+    margin-left: 20rem;
+
+}
+
+.puan {
+    font-size: 1rem;
+
+}
+
+.order-alt-bolum {
+    max-width: 530px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 1rem;
+
+}
+
+.boyuthamur {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 20px;
+    padding-bottom: 20px;
+
+
+
+}
+
+
+.secim {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+
+
+}
+
+.zorunluLabel {
+    position: relative;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 20px;
+
+
+}
+
+.zorunluLabel::after {
+    content: " *";
+    color: #D80027;
+    position: absolute;
+    top: 0;
+    right: -10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 20px;
+
+}
+
+
+
+p[style*="color: red"] {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+
+}
+
+.radio-group {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+
+}
+
+.radio-label {
+    cursor: pointer;
+}
+
+.radio-label input {
+    display: none;
+
+}
+
+.radio-text {
+    display: inline-block;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 100%;
+    transition: all 0.3s ease;
+    background-color: #FAF7F2;
+    scale: 1.5;
+}
+
+.radio-label input:checked+.radio-text {
+    background-color: #FFEECC;
+    scale: 1.7;
+
+
+}
+
+.hamurselect {
+    width: 258px;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 6px;
+    background-color: #FAF7F2;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.label {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 20px 0;
+
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 10px;
+    padding: 10px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.checkbox-label input {
+    display: none;
+
+}
+
+.checkmark {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background-color: #FAF7F2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: black;
+
+}
+
+.checkbox-label input:checked+.checkmark {
+    background-color: #FDC913;
+}
+
+.checkbox-label input:checked+.checkmark::after {
+    content: "✔";
+}
+
+.isim-siparis {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+
+.siparis-input {
+    background-color: #FAF7F2;
+    font-size: 1rem;
+    vertical-align: auto;
+
+}
+
+.siparis-input::placeholder {
+    line-height: 50px;
+
+}
+
+.qty {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 40px;
+    margin-top: 5px;
+}
+
+.qty-btn {
+    width: 40px;
+    height: 100%;
+    border: none;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s;
+    background-color: #FDC913;
+
+
+
+}
+
+.qty-btn:hover {
+    background: #eee;
+}
+
+.qty-input {
+    width: 56px;
+    text-align: center;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    -moz-appearance: textfield;
+}
+
+
+.qty-input::-webkit-outer-spin-button,
+.qty-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+
+
+
+.form-group {
+    width: 350px;
+    /* sabit genişlik */
+    margin-left: auto;
+    /* sağa yaslar */
+    margin-right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #FAF7F2
+}
+
+.form-group h4 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    /* yazı sola, fiyat sağa */
+    width: 100%;
+}
+
+.form-row p {
+    margin: 0;
+}
+
+.siparis-buton {
+    width: 100%;
+    background: #FDC913;
+    color: black;
+    font-size: 1rem;
+    font-weight: 600;
+    border: solid 1px #D9D9D9;
+    border-radius: 6px;
+    cursor: pointer;
+
+}
+
+.siparis-buton:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+}

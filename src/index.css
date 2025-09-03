@@ -1,4 +1,4 @@
-* {
+/* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -21,7 +21,7 @@
 .baslik {
     display: flex;
     justify-content: space-between;
-    /* solda fiyat, sağda diğer ikisi */
+    
     align-items: center;
     max-width: 420px;
     margin: 10px auto;
@@ -31,7 +31,7 @@
 
 .fiyat {
     font-size: 1.5rem;
-    /* büyük görünmesi için */
+    
     font-weight: bold;
 }
 
@@ -70,7 +70,7 @@
 
 
 
-/* Radio butonları yan yana yapmak için */
+
 .radio-group {
     display: flex;
     flex-direction: column;
@@ -78,7 +78,7 @@
     margin-top: 5px;
 }
 
-/* Kırmızı yıldız ekleme */
+
 .zorunluLabel::after {
     content: " *";
     color: red;
@@ -102,7 +102,7 @@
 .checkbox-group {
     display: grid;
     grid-template-columns: repeat(3, auto);
-    /* 3’lü sıra */
+    
     gap: 10px;
     padding: 10px;
 }
@@ -144,7 +144,7 @@
     -moz-appearance: textfield;
 }
 
-/* Chrome/Safari number oklarını gizle */
+
 .qty-input::-webkit-outer-spin-button,
 .qty-input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -154,22 +154,22 @@
 .form-row {
     display: flex;
     justify-content: space-between;
-    /* solda adet, sağda toplam */
+   
     align-items: flex-start;
-    /* üst hizalansın */
+    
     gap: 20px;
-    /* aralarına boşluk */
+   
     margin-top: 20px;
 }
 
 .form-row>div:first-child {
     flex: 1;
-    /* soldaki daha dar */
+   
 }
 
 .form-row>div:last-child {
     flex: 2;
-    /* sağdaki iki kat geniş */
+   
 }
 
 .siparis-buton {
@@ -189,20 +189,20 @@
 }
 
 
-
-
+*/
+/*
 .successpage {
     background-color: #CE2829;
     width: 100vw;
-    /* ekranın tamamı genişlik */
+    
     height: 100vh;
-    /* ekranın tamamı yükseklik */
+   
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* dikey ortala */
+   /
     align-items: center;
-    /* yatay ortala */
+  
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -216,11 +216,11 @@
     color: white;
     font-family: 'Barlow', sans-serif;
     margin: 10px 0;
-    /* başlıklar arası boşluk */
+   
     text-align: center;
 }
 
-/* Responsive */
+
 @media (max-width: 600px) {
     .successpage h1 {
         font-size: 1.8rem;
@@ -232,9 +232,9 @@
     padding: 20px;
     color: white;
     min-width: 150px;
-    /* minimum genişlik */
+  
     max-width: 200px;
-    /* maksimum genişlik */
+  
     font-size: 16px;
     display: flex;
     flex-wrap: wrap;
@@ -275,9 +275,9 @@ hr {
     border: none;
     border-top: 2px solid white;
     width: 40%;
-    /* çizginin uzunluğu */
+   
     margin: 20px auto;
-    /* ortala */
+   
 }
 
 .footer {
@@ -286,11 +286,11 @@ hr {
     padding: 20px;
 }
 
-/* üstteki 3 div container */
+
 .footer-top {
     display: flex;
     justify-content: center;
-    /* ortaya toplar */
+    
     gap: 30px;
 }
 
@@ -305,25 +305,25 @@ hr {
     margin-bottom: 10px;
 }
 
-/* alt çizgi */
+
 .footer hr {
     border: none;
     border-top: 1px solid #5F5F5F;
     margin: 10px auto;
 }
 
-/* alttaki yazı */
+
 .footer-bottom {
     text-align: center;
     font-size: 14px;
     margin-top: 10px;
 }
 
-/* Instagram ikon grid */
+
 .footer-insta {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* desktop: 3 sütun */
+
     gap: 15px;
 }
 
@@ -336,7 +336,7 @@ hr {
 
 }
 
-/* tablet görünümü (2x3) */
+
 @media (max-width: 768px) {
     .footer-top {
         flex-direction: column;
@@ -349,7 +349,7 @@ hr {
     }
 }
 
-/* küçük telefon (1x6) */
+
 @media (max-width: 480px) {
     .footer-insta {
         grid-template-columns: 1fr;
@@ -400,6 +400,7 @@ button.resimlibuton {
     border-radius: 10px;
 }
 
+/*
 .radio-group {
     display: flex;
     gap: 15px;
@@ -443,12 +444,12 @@ button.resimlibuton {
 }
 
 
-/* checkboxların css i*/
+
 
 .checkbox-group {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* 3 kolon */
+  
     gap: 12px 20px;
 
 }
@@ -463,9 +464,10 @@ button.resimlibuton {
 
 .checkbox-label input {
     display: none;
-    /* varsayılan kutucuğu gizle */
+   
 }
 
+/*
 .checkmark {
     width: 28px;
     height: 28px;
@@ -490,7 +492,7 @@ button.resimlibuton {
 
 
 /*navbar adı breadcrumb mış*/
-
+/*
 .breadcrumb {
     font-size: 16px;
     margin-bottom: 20px;

@@ -2,7 +2,8 @@ import axios from 'axios';
 import pizzalar from './pizzalar.json';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import "./index.css";
+import "./orderpage.css";
+
 
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
@@ -85,183 +86,198 @@ export default function OrderPage({ setSiparis }) {
     return (
 
 
-        <div className="orderpage">
+        <div>
 
-            <div style={{ backgroundColor: "#FAF7F2", maxWidth: "100%" }}>
+            <div className='order-ust-bolum'>
+
 
                 <img src='pictures/form-banner.png' alt='Form Banner' />
-                <nav className="breadcrumb">
-                    <a href="/">Anasayfa</a>
-                    <span>/</span>
-                    <span>Sipariş Oluştur</span>
-                </nav>
+                <div className='order-pizza-aciklama' >
+                    <nav className="breadcrumb">
+                        <a href="/">Anasayfa</a>
+                        <span>/</span>
+                        <span>Sipariş Oluştur</span>
+                    </nav>
 
-                <h2 style={{ marginTop: "10px" }} >{secilipizza.name}</h2>
-                <div className='baslik'>
+                    <h2>{secilipizza.name}</h2>
 
-                    <span className='fiyat'>{secilipizza.fiyat}</span>
-                    <div>
+
+                    <div className='baslik'>
+                        <span className='fiyat'>{secilipizza.fiyat}₺</span>
                         <span className='puan'>{secilipizza.puan}</span>
                         <span className='puan'>({secilipizza.begeni})</span>
                     </div>
 
+
+                    <p>{secilipizza.aciklama} </p>
                 </div>
-                <p>{secilipizza.aciklama} </p>
 
             </div>
-
-            <form onSubmit={handleSubmit(onSubmit)}>
-
-
-                <div>
+            <div className='order-alt-bolum'>
+                <form onSubmit={handleSubmit(onSubmit)}>
 
 
-                    <div className='boyuthamur'>
-                        <div className="secim">
-                            <label className="zorunluLabel">Boyut Seç:</label>
-                            <div style={{ display: "flex", flexDirection: "row" }} className="radio-group">
-                                {["S", "M", "L"].map((boyut, index) => (
-                                    <label key={index} className="radio-label">
-                                        <input
-                                            type="radio"
-                                            value={boyut}
-                                            {...register("boyut", { required: "Boyut Seçmek Zorunlu!" })}
-                                        />
-                                        <span className="radio-text">{boyut}</span>
-                                    </label>
-                                ))}
+                    <div>
+
+
+                        <div className='boyuthamur'>
+                            <div className="secim">
+                                <label className="zorunluLabel">Boyut Seç
+                                </label>
+                                <div className="radio-group">
+                                    {["S", "M", "L"].map((boyut, index) => (
+                                        <label key={index} className="radio-label">
+                                            <input
+                                                type="radio"
+                                                value={boyut}
+                                                {...register("boyut", { required: "Boyut Seçmek Zorunlu!" })}
+                                            />
+                                            <span className="radio-text">{boyut}</span>
+                                        </label>
+                                    ))}
+                                </div>
+
+                                {errors.boyut && <p style={{ color: "red" }}>{errors.boyut.message}</p>}
                             </div>
 
-                            {errors.boyut && <p style={{ color: "red" }}>{errors.boyut.message}</p>}
+                            <div className="secim">
+                                <label className="zorunluLabel">Hamur Seç </label>
+                                <select className='hamurselect' {...register("hamur", { required: "Hamur seçmek zorunlu" })}>
+                                    <option value="">-- Hamur Kalınlığı Seç --</option>
+                                    <option value="ince">İnce</option>
+                                    <option value="Süper ince">Süper İnce</option>
+                                    <option value="Kalın">Kalın</option>
+                                </select>
+                                {errors.hamur && <p style={{ color: "red" }}>{errors.hamur.message}</p>}
+                            </div>
+
                         </div>
 
-                        <div className="secim">
-                            <label className="zorunluLabel">Hamur Seç:</label>
-                            <select className='hamurselect' {...register("hamur", { required: "Hamur seçmek zorunlu" })}>
-                                <option value="">-- Hamur Kalınlığı Seç --</option>
-                                <option value="ince">İnce</option>
-                                <option value="Süper ince">Süper İnce</option>
-                                <option value="Kalın">Kalın</option>
-                            </select>
-                            {errors.hamur && <p style={{ color: "red" }}>{errors.hamur.message}</p>}
+
+                        <label className="label">Ek Malzemeler</label>
+
+                        <p >En fazla 10 en az 4 malzeme seçebilirsiniz. {ekmalzemefiyat}₺</p>
+                        <div className="checkbox-group">
+                            {malzemeler?.map((malzeme, index) => (
+                                <label key={index} className="checkbox-label" htmlFor={`malzeme-${index}`}>
+                                    <input
+                                        type="checkbox"
+                                        id={`malzeme-${index}`}
+                                        value={malzeme}
+                                        {...register("malzemeler", {
+                                            validate: (selected) => {
+                                                if (!selected || selected.length < 4) {
+                                                    return "En az 4 malzeme seçmelisiniz";
+                                                }
+                                                if (selected.length > 10) {
+                                                    return "En fazla 10 malzeme seçebilirsiniz";
+                                                }
+                                                return true;
+                                            },
+                                        })}
+                                    />
+                                    <span className="checkmark"></span>
+                                    {malzeme}
+                                </label>
+                            ))}
                         </div>
+                        {errors.malzemeler && (
+                            <p style={{ color: "red" }}>{errors.malzemeler.message}</p>
+                        )}
+
+
+
+
 
                     </div>
 
+                    <div className='isim-siparis'>
+                        <label className='label' >İsim</label>
+                        <input className='siparis-input'
+                            type="text"
+                            {...register("isim", {
+                                required: "İsim Zorunlu",
+                                minLength: {
+                                    value: 3,
+                                    message: "İsim en az 3 karakter olmalı",
+                                },
+                            })}
+                            placeholder="Lütfen İsminizi Giriniz"
+                        />
+                        {errors.isim && <p style={{ color: "red" }}>{errors.isim.message}</p>}
+                    </div>
 
-                    <label className="label">Ek Malzemeler</label>
+                    <div className='isim-siparis'>
+                        <label className='label'>Sipariş Notu</label>
+                        <textarea className='siparis-input'
+                            {...register("not")}
+                            placeholder="Siparişine eklemek istediğin bir not var mı?"
+                            rows={3}
+                        ></textarea>
+                    </div>
+                    <hr style={{ margin: "5px 0" }}></hr>
 
-                    <p style={{ margin: "10px auto" }} >En fazla 10 en az 4 malzeme seçebilirsiniz. {ekmalzemefiyat}₺</p>
-                    <div className="checkbox-group">
-                        {malzemeler?.map((malzeme, index) => (
-                            <label key={index} className="checkbox-label" htmlFor={`malzeme-${index}`}>
+
+
+
+                    <div className='form-row' >
+                        <div>
+                            <label>Adet:</label>
+
+                            <div className="qty">
+                                <button
+                                    type="button"
+                                    className="qty-btn"
+                                    onClick={() => setValue("adet", Math.max(1, Number(getValues("adet") || 1) - 1))}
+                                >
+                                    –
+                                </button>
+
                                 <input
-                                    type="checkbox"
-                                    id={`malzeme-${index}`}
-                                    value={malzeme}
-                                    {...register("malzemeler", {
-                                        validate: (selected) => {
-                                            if (!selected || selected.length < 4) {
-                                                return "En az 4 malzeme seçmelisiniz";
-                                            }
-                                            if (selected.length > 10) {
-                                                return "En fazla 10 malzeme seçebilirsiniz";
-                                            }
-                                            return true;
-                                        },
+                                    type="number"
+                                    defaultValue={1}
+                                    {...register("adet", {
+                                        required: "Adet gerekli",
+                                        min: { value: 1, message: "Minimum 1 adet" },
                                     })}
+                                    className="qty-input"
                                 />
-                                <span className="checkmark"></span>
-                                {malzeme}
-                            </label>
-                        ))}
-                    </div>
-                    {errors.malzemeler && (
-                        <p style={{ color: "red" }}>{errors.malzemeler.message}</p>
-                    )}
 
+                                <button
+                                    type="button"
+                                    className="qty-btn"
+                                    onClick={() => setValue("adet", Number(getValues("adet") || 1) + 1)}
+                                >
+                                    +
+                                </button>
+                            </div>
 
+                            {errors.adet && <p>{errors.adet.message}</p>}
+                        </div>
+                        <div className="form-group">
+                            <h4>Sipariş Toplamı</h4>
 
+                            <div className="form-row">
+                                <p>Seçimler:</p>
+                                <p>{secilenlerFiyat2}</p>
+                            </div>
 
+                            <div className="form-row">
+                                <p>Toplam:</p>
+                                <p style={{ color: "red" }}>{toplam}</p>
+                            </div>
 
-                </div>
-
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                    <label style={{ fontWeight: "bold", padding: "10px 0px" }} >İsim</label>
-                    <input style={{ backgroundColor: "#FAF7F2", height: "35px" }}
-                        type="text"
-                        {...register("isim", {
-                            required: "İsim Zorunlu",
-                            minLength: {
-                                value: 3,
-                                message: "İsim en az 3 karakter olmalı",
-                            },
-                        })}
-                        placeholder="Lütfen İsminizi Giriniz"
-                    />
-                    {errors.isim && <p style={{ color: "red" }}>{errors.isim.message}</p>}
-                </div>
-
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                    <label style={{ fontWeight: "bold", padding: "20px 0 " }}>Sipariş Notu</label>
-                    <textarea style={{
-                        backgroundColor: "#FAF7F2",
-                        padding: "10px 0"
-                    }}
-                        {...register("not")}
-                        placeholder="Siparişine eklemek istediğin bir not var mı?"
-                        rows={3}
-                    ></textarea>
-                </div>
-                <hr style={{ margin: "5px 0" }}></hr>
-
-
-
-
-                <div className='form-row' >
-                    <div>
-                        <label>Adet:</label>
-
-                        <div className="qty">
-                            <button
-                                type="button"
-                                className="qty-btn"
-                                onClick={() => setValue("adet", Math.max(1, Number(getValues("adet") || 1) - 1))}
-                            >
-                                –
-                            </button>
-
-                            <input
-                                type="number"
-                                defaultValue={1}
-                                {...register("adet", {
-                                    required: "Adet gerekli",
-                                    min: { value: 1, message: "Minimum 1 adet" },
-                                })}
-                                className="qty-input"
-                            />
-
-                            <button
-                                type="button"
-                                className="qty-btn"
-                                onClick={() => setValue("adet", Number(getValues("adet") || 1) + 1)}
-                            >
-                                +
+                            <button className="siparis-buton" type="submit" disabled={!isValid}>
+                                Sipariş Ver
                             </button>
                         </div>
-
-                        {errors.adet && <p>{errors.adet.message}</p>}
                     </div>
-                    <div className="form-group">
-                        <h4>Sipariş Toplamı</h4>
 
-                        <p>Seçimler: {secilenlerFiyat2}</p>
-                        <p style={{ color: "red" }}>Toplam: {toplam} </p>
-                        <button className="siparis-buton" type="submit" disabled={!isValid}>Sipariş Ver</button>
-                    </div>
-                </div>
+                </form>
+            </div>
 
-            </form>
+
+
             <ToastContainer />
 
         </div>
