@@ -7,3 +7,11 @@
     margin: 0;
 
 }
+
+.header img {
+    max-width: 100%;
+    /* Büyük ekranlarda maksimum */
+    width: 100%;
+    /* Küçük ekranlarda sığması için */
+    height: auto;
+}

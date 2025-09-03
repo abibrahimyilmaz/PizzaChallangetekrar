@@ -2,6 +2,10 @@
     font-family: "Barlow";
 }
 
+.order-ust-bolum img {
+    max-width: 100%;
+}
+
 .pizza-secimi {
     display: flex;
     flex-direction: column;
@@ -316,4 +320,75 @@ p[style*="color: red"] {
 .siparis-buton:disabled {
     background: #aaa;
     cursor: not-allowed;
+}
+
+
+/* Mobil cihazlar (≤600px) */
+@media (max-width: 600px) {
+    .pizza-secimi {
+
+        padding: 10px;
+    }
+
+    .order-ust-bolum {}
+
+    .order-pizza-aciklama {
+        max-width: 100%;
+        font-size: 0.9rem;
+        line-height: 1.4rem;
+    }
+
+    .baslik {
+
+        padding: 2px;
+    }
+
+    .puan:nth-child(2) {
+        margin-left: 0;
+    }
+
+
+
+    .boyuthamur {
+
+        gap: 1rem;
+        margin: 10px 0;
+    }
+
+    .secim {
+        width: 100%;
+    }
+
+    .radio-group {
+
+        gap: 1rem;
+    }
+
+    .hamurselect {
+        width: 100%;
+    }
+
+    .checkbox-group {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+    }
+
+    .form-group {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .qty {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .qty-input {
+        width: 50%;
+    }
 }

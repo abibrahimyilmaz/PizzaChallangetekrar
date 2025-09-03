@@ -1,0 +1,12 @@
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Mobilde ekstra kontrol (isteğe bağlı) */
+@media (max-width: 600px) {
+    body {
+        overflow-x: hidden;
+    }
+}

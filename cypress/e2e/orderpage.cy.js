@@ -1,88 +1,103 @@
-describe('Order Page Tests', () => {
+// cypress/e2e/orderPage.cy.js
 
-    it('Form alanları görünür ve doldurulabiliyor, sipariş gönderilebiliyor', () => {
-        cy.visit('http://localhost:5173/orderpage');
+describe('OrderPage Form Test', () => {
+    beforeEach(() => {
+        cy.visit('http://localhost:5173/OrderPage'); // OrderPage route'unu açıyoruz
+    });
 
-        // Boyut seç
-        cy.get('input[type="radio"][value="Orta"]').check();
+    it('Pizza siparişi oluşturma', () => {
+        // Boyut seç (örneğin Large L)
+        cy.get('input[type="radio"][value="L"]').check({ force: true });
 
         // Hamur seç
-        cy.get('select[name="hamur"]').select('ince');
+        cy.get('select.hamurselect').select('İnce');
 
-        // Malzemelerden 4 tane seç
-        cy.get('input[type="checkbox"][value="Mozzarella"]').check();
-        cy.get('input[type="checkbox"][value="Sucuk"]').check();
-        cy.get('input[type="checkbox"][value="Soğan"]').check();
-        cy.get('input[type="checkbox"][value="Biber"]').check();
+        // En az 4 malzeme seç
+        cy.get('input[type="checkbox"]').eq(0).check({ force: true }); // Mozzarella
+        cy.get('input[type="checkbox"]').eq(1).check({ force: true }); // Sucuk
+        cy.get('input[type="checkbox"]').eq(2).check({ force: true }); // Mantar
+        cy.get('input[type="checkbox"]').eq(3).check({ force: true }); // Biber
 
         // İsim gir
-        cy.get('input[name="isim"]').type('ibram');
+        cy.get('input[name="isim"]').type('İbrahim Yılmaz');
 
-        // Adet inputu varsa +1 ekle
+        // Adet varsayılan 1 geliyor, değiştirmek istersen
         cy.get('input[name="adet"]').clear().type('2');
 
-        // Sipariş notu
-        cy.get('textarea[name="not"]').type('Test sipariş notu');
-
-        // Sipariş Ver butonuna tıkla
+        // Sipariş ver butonuna tıkla
         cy.get('button.siparis-buton').click();
 
-        // Başarı toastunu kontrol et
-        cy.contains('TEBRİKLER!').should('be.visible');
-
-        // Yönlendirme kontrolü
+        // SuccessPage'e yönlendirme kontrolü
         cy.url().should('include', '/SuccessPage');
     });
 
-    it('Boyut seçmeden ilerlendiğinde hata mesajı gösteriyor mu?', () => {
-        cy.visit('http://localhost:5173/orderpage');
+    it('Gerekleri yerine getirmediğinde hata mesajları gözüküyor mu', () => {
+        // Boyut seç (örneğin Large L)
+        cy.get('input[type="radio"][value="L"]').check({ force: true });
 
-        cy.get('select[name="hamur"]').select('Kalın');
-        cy.get('input[type="checkbox"][value="Mozzarella"]').check();
-        cy.get('input[type="checkbox"][value="Sucuk"]').check();
-        cy.get('input[name="isim"]').type('ibram');
+        // Hamur seç
+        cy.get('select.hamurselect').select('İnce');
 
-        // Boyut seçmeden Sipariş Ver butonuna tıkla
-        cy.get('button.siparis-buton').click();
+        // En az 4 malzeme seç
+        cy.get('input[type="checkbox"]').eq(0).check({ force: true }); // Mozzarella
+        cy.get('input[type="checkbox"]').eq(1).check({ force: true }); // Sucuk
+        cy.get('input[type="checkbox"]').eq(2).check({ force: true }); // Mantar
+        cy.get('input[type="checkbox"]').eq(3).check({ force: true }); // Biber
+        cy.get('input[type="checkbox"]').eq(4).check({ force: true });
+        cy.get('input[type="checkbox"]').eq(5).check({ force: true });
+        cy.get('input[type="checkbox"]').eq(6).check({ force: true });
+        cy.get('input[type="checkbox"]').eq(7).check({ force: true });
+        cy.get('input[type="checkbox"]').eq(8).check({ force: true });
+        cy.get('input[type="checkbox"]').eq(9).check({ force: true });
+        cy.get('input[type="checkbox"]').eq(10).check({ force: true });
 
-        // Hata mesajını kontrol et
-        cy.contains('Boyut Seçmek Zorunlu!').should('be.visible');
-
-        // URL değişmemeli, hala aynı sayfada olmalı
-        cy.url().should('include', '/orderpage');
+        // İsim gir
+        cy.get('input[name="isim"]').type('İb');
 
 
-    })
 
-    it('10 dan fazla malzeme seçilmek istenildiğinde hata mesajı gözüküyor mu?', () => {
-        cy.visit('http://localhost:5173/orderpage');
 
-        cy.get('select[name="hamur"]').select('Kalın');
-        cy.get('input[type="radio"][value="Orta"]').check();
-        cy.get('input[type="checkbox"][value="Mozzarella"]').check();
-        cy.get('input[type="checkbox"][value="Biber"]').check();
-        cy.get('input[type="checkbox"][value="Domates"]').check();
-        cy.get('input[type="checkbox"][value="Kapari"]').check();
-        cy.get('input[type="checkbox"][value="Rokfor"]').check();
-        cy.get('input[type="checkbox"][value="Sucuk"]').check();
-        cy.get('input[type="checkbox"][value="Soğan"]').check();
-        cy.get('input[type="checkbox"][value="Jambon"]').check();
-        cy.get('input[type="checkbox"][value="Sosis"]').check();
-        cy.get('input[type="checkbox"][value="Mısır"]').check();
-        cy.get('input[type="checkbox"][value="Tavuk"]').check();
-        cy.get('input[name="isim"]').type('ibram');
 
-        // Boyut seçmeden Sipariş Ver butonuna tıkla
-        cy.get('button.siparis-buton').click();
-
-        // Hata mesajını kontrol et
         cy.contains('En fazla 10 malzeme seçebilirsiniz').should('be.visible');
-
-        // URL değişmemeli, hala aynı sayfada olmalı
-        cy.url().should('include', '/orderpage');
+        cy.contains('İsim en az 3 karakter olmalı').should('be.visible');
 
 
-    })
+    });
 
+    beforeEach(() => {
+        // API çağrısını yakala
+        cy.intercept('POST', 'https://reqres.in/api/pizza').as('pizzaPost');
+        cy.visit('http://localhost:5173/OrderPage'); // Senin OrderPage route'un
+    });
 
+    it('Sipariş başarıyla veriliyor', () => {
+        // Boyut seç
+        cy.get('input[type="radio"][value="L"]').check({ force: true });
+
+        // Hamur seç
+        cy.get('select.hamurselect').select('İnce');
+
+        // En az 4 malzeme seç
+        cy.get('input[type="checkbox"]').eq(0).check({ force: true });
+        cy.get('input[type="checkbox"]').eq(1).check({ force: true });
+        cy.get('input[type="checkbox"]').eq(2).check({ force: true });
+        cy.get('input[type="checkbox"]').eq(3).check({ force: true });
+
+        // İsim gir
+        cy.get('input[name="isim"]').type('İbrahim Yılmaz');
+
+        // Sipariş ver
+        cy.get('button.siparis-buton').click();
+
+        // API çağrısını bekle ve payload kontrol et
+        cy.wait('@pizzaPost').then((interception) => {
+            expect(interception.request.body).to.have.property('isim', 'İbrahim Yılmaz');
+            expect(interception.request.body).to.have.property('boyut', 'L');
+            cy.log('Payload:', interception.request.body); // Cypress loguna yazdırır
+            console.log('Payload:', interception.request.body); // Tarayıcı console’una yazdırır
+        });
+
+        // SuccessPage’e yönlendirme kontrolü
+        cy.url().should('include', '/SuccessPage');
+    });
 });

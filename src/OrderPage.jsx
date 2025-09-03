@@ -66,6 +66,8 @@ export default function OrderPage({ setSiparis }) {
             secilenlerFiyat2,
             toplam,
             pizzaIsmi: secilipizza.name
+
+
         };
 
 

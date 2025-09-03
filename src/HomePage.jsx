@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
-import banner from './images/home-banner.png';
 import "./homepage.css";
+
 import { useEffect, useRef, useState } from "react";
 import pizzalar from "./pizzalar.json";
 export default function HomePage() {

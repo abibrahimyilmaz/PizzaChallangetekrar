@@ -165,12 +165,18 @@ main h1 {
     align-items: center;
     justify-content: center;
     padding: 10px;
+
 }
 
 .resimlibuton {
-
-    border-radius: 8px;
+    height: 66px;
+    width: 165px;
+    border-radius: 50px;
     cursor: pointer;
+    border: none;
+    margin: 5px;
+    border-radius: 20px;
+    background-color: #FFFFFF;
 
 }
 
@@ -225,6 +231,8 @@ main h1 {
     .pizza-card {
         flex: 0 0 calc(100% - 20px);
     }
+
+
 }
 
 .pizza-card img {
@@ -251,4 +259,96 @@ main h1 {
     border: none;
     font-size: 1.8rem;
     cursor: pointer;
+}
+
+
+@media (max-width: 600px) {
+    .main {
+
+        text-align: center;
+    }
+
+    .main p {
+        font-size: 1.2rem;
+    }
+
+    main h1 {
+        font-size: 1.8rem;
+    }
+
+    .aciktim-buton {
+        width: 160px;
+        font-size: 1.2rem;
+        padding: 8px 12px;
+    }
+
+    .yemek-bar {
+        flex-wrap: wrap;
+        margin: 60px;
+        gap: 10px;
+        padding: 20px
+    }
+
+    .lezzetus {
+        flex-direction: column;
+        gap: 20px;
+        margin: 20px auto;
+    }
+
+    .ozel-lezzetus,
+    .hackatlon-npm>div {
+        width: 100%;
+        height: auto;
+    }
+
+    .ozel-lezzetus h2,
+    .hackatlon-npm h2 {
+        font-size: 1.5rem;
+    }
+
+    .ozel-lezzetus p {
+        font-size: 1rem;
+    }
+
+    .btn-siparisver {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+
+    .resimlibutondiv {
+        flex-wrap: wrap;
+
+        gap: 10px;
+    }
+
+    .resimlibuton {
+
+        width: 80%;
+        height: 50px;
+        font-size: 1rem;
+    }
+
+    .carousel-container {
+        flex-wrap: wrap;
+
+
+    }
+
+    .pizza-card {
+        flex: 0 0 100%;
+        padding: 10px;
+    }
+
+    .pizza-card img {
+        height: 140px;
+    }
+
+    .pizza-info {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .scroll-btn {
+        visibility: hidden;
+    }
 }
