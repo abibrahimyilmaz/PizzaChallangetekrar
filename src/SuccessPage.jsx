@@ -42,6 +42,10 @@ export default function SuccessPage({ siparis }) {
                     <span>{siparis.toplam}₺</span>
                 </div>
             </div>
+
+            <p>
+                API'den gelen tarih verisi: {new Date(siparis.createdAt).toLocaleString("tr-TR")}
+            </p>
         </div>
 
     )

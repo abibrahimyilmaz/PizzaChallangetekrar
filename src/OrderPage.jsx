@@ -6,11 +6,11 @@ import "./orderpage.css";
 
 
 import { useForm } from 'react-hook-form';
-import { useHistory } from 'react-router-dom';
-import { useState } from 'react';
-export default function OrderPage({ setSiparis }) {
 
-    const history = useHistory();
+import { useState } from 'react';
+export default function OrderPage({ setSiparis, history }) {
+
+
 
     const malzemeler = [
         "Mozzarella",
