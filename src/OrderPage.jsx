@@ -81,7 +81,7 @@ export default function OrderPage({ setSiparis, history }) {
             }
         })
             .then(res => {
-                setSiparis({ ...res.data, ...payload })
+                setSiparis({ ...res.data })
 
                 console.log(res.data);
                 history.push("/SuccessPage");
